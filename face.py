@@ -2,12 +2,13 @@
 # import sys
 import cv2 as cv
 
-imagePath = r'./face.jpg'
+imagePath = r'./data/test/test.jpg'
 haarCascadePath = r'./data/haarcascade/haarcascade_frontalface_default.xml'
 
 face_cascade = cv.CascadeClassifier(haarCascadePath)
 image = cv.imread(imagePath)
 
+# convert the test image to gray scale as opencv face detector expects gray images
 gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 faces = face_cascade.detectMultiScale(
     gray,
