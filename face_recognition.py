@@ -8,7 +8,7 @@ import numpy as np
 
 HAARCASCA_PATH='data/haarcascade/haarcascade_frontalface_default.xml'
 
-#there is no label 0 in our training data so subject name for index/label 0 is empty
+# there is no label 0 in our training data so subject name for index/label 0 is empty
 subjects = ["", "Stefanie Sun", "HuangXuan"]
 
 # function to detect face using OpenCV
@@ -106,15 +106,15 @@ def prepare_training_data(data_folder_path):
     
     return faces, labels
 
-#let's first prepare our training data
-#data will be in two lists of same size
-#one list will contain all the faces
-#and the other list will contain respective labels for each face
+# let's first prepare our training data
+# data will be in two lists of same size
+# one list will contain all the faces
+# and the other list will contain respective labels for each face
 print("Preparing data...")
 faces, labels = prepare_training_data("data/training-data")
 print("Data prepared")
 
-#print total faces and labels
+# print total faces and labels
 print("Total faces: ", len(faces))
 print("Total labels: ", len(labels))
 
@@ -125,9 +125,9 @@ print("Total labels: ", len(labels))
 # or use FisherFaceRecognizer by replacing above line with
 # face_recognizer = cv2.face.createFisherFaceRecognizer()
 
-#create our LBPH face recognizer
+# create our LBPH face recognizer
 face_recognizer =  cv2.face.LBPHFaceRecognizer_create()
-#train our face recognizer of our training faces
+# train our face recognizer of our training faces
 face_recognizer.train(faces, np.array(labels))
 
 # function to draw rectangle on image
@@ -168,16 +168,16 @@ def predict(test_img):
 
 print("Predicting images...")
 
-#load test images
+# load test images
 test_img1 = cv2.imread("data/test/test_hx5.jpg")
 test_img2 = cv2.imread("data/test/test_hx.png")
 
-#perform a prediction
+# perform a prediction
 predicted_img1 = predict(test_img1)
 predicted_img2 = predict(test_img2)
 print("Prediction complete")
 
-#display both images
+# display both images
 cv2.imshow(subjects[1], predicted_img1)
 cv2.imshow(subjects[2], predicted_img2)
 cv2.waitKey(0)
