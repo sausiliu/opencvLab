@@ -12,6 +12,8 @@ HAARCASCA_PATH='data/haarcascade/haarcascade_frontalface_default.xml'
 subjects = ["", "Stefanie Sun", "HuangXuan"]
 
 # function to detect face using OpenCV
+
+
 def detect_face(img):
     # convert the test image to gray scale as opencv face detector expects gray images
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -22,7 +24,7 @@ def detect_face(img):
 
     # let's detect multiscale images(some images may be closer to camera than others)
     # result is a list of faces
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5);
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5)
 
     # if no faces are detected then return original img
     if len(faces) == 0:
