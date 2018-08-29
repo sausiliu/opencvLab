@@ -108,4 +108,4 @@ venv.bak/
 .mypy_cache/
 
 # some other local files
-*/.DS_Store
+.DS_Store
