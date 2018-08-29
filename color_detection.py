@@ -1,8 +1,8 @@
 import numpy as np
 import cv2 as cv
 
-img_path="./data/test/red_retangle.png"
-imgCp_path="./data/test/red_retangle_copy.png"
+img_path = "./data/test/red_retangle.png"
+imgCp_path = "./data/test/red_retangle_copy.png"
 # img_path = "./data/test/red_retangle_cube.jpg"
 
 image = cv.imread(img_path)

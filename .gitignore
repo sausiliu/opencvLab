@@ -107,6 +107,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# others
-#
+# some other local files
 */.DS_Store
