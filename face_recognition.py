@@ -1,6 +1,6 @@
 # https://www.superdatascience.com/opencv-face-recognition/
 # OpenCV module
-import cv2
+import cv2 as cv
 # os module for reading training data directories and paths
 import os
 # numpy to convert python lists to numpy arrays as it is needed by OpenCV face recognizers
@@ -16,11 +16,11 @@ subjects = ["", "Stefanie Sun", "HuangXuan"]
 
 def detect_face(img):
     # convert the test image to gray scale as opencv face detector expects gray images
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
     # load OpenCV face detector, I am using LBP which is fast
     # there is also a more accurate but slow: Haar classifier
-    face_cascade = cv2.CascadeClassifier(HAARCASCA_PATH)
+    face_cascade = cv.CascadeClassifier(HAARCASCA_PATH)
 
     # let's detect multiscale images(some images may be closer to camera than others)
     # result is a list of faces
@@ -84,11 +84,11 @@ def prepare_training_data(data_folder_path):
             image_path = subject_dir_path + "/" + image_name
             
             # read image
-            image = cv2.imread(image_path)
+            image = cv.imread(image_path)
             
             # display an image window to show the image
-            cv2.imshow("Training on image...", image)
-            cv2.waitKey(100)
+            cv.imshow("Training on image...", image)
+            cv.waitKey(100)
             
             # detect face
             face, rect = detect_face(image)
@@ -102,9 +102,9 @@ def prepare_training_data(data_folder_path):
                 # add label for this face
                 labels.append(label)
     
-    cv2.destroyAllWindows()
-    cv2.waitKey(1)
-    cv2.destroyAllWindows()
+    cv.destroyAllWindows()
+    cv.waitKey(1)
+    cv.destroyAllWindows()
     
     return faces, labels
 
@@ -121,14 +121,14 @@ print("Total faces: ", len(faces))
 print("Total labels: ", len(labels))
 
 # create our LBPH face recognizer
-# face_recognizer = cv2.face.createLBPHFaceRecognizer()
+# face_recognizer = cv.face.createLBPHFaceRecognizer()
 # or use EigenFaceRecognizer by replacing above line with
-# face_recognizer = cv2.face.createEigenFaceRecognizer()
+# face_recognizer = cv.face.createEigenFaceRecognizer()
 # or use FisherFaceRecognizer by replacing above line with
-# face_recognizer = cv2.face.createFisherFaceRecognizer()
+# face_recognizer = cv.face.createFisherFaceRecognizer()
 
 # create our LBPH face recognizer
-face_recognizer =  cv2.face.LBPHFaceRecognizer_create()
+face_recognizer =  cv.face.LBPHFaceRecognizer_create()
 # train our face recognizer of our training faces
 face_recognizer.train(faces, np.array(labels))
 
@@ -137,13 +137,13 @@ face_recognizer.train(faces, np.array(labels))
 # given width and heigh
 def draw_rectangle(img, rect):
     (x, y, w, h) = rect
-    cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+    cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 
 # function to draw text on give image starting from
 # passed (x, y) coordinates.
 def draw_text(img, text, x, y):
-    cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.5, (0, 255, 0), 2)
+    cv.putText(img, text, (x, y), cv.FONT_HERSHEY_PLAIN, 1.5, (0, 255, 0), 2)
 
 
 # this function recognizes the person in image passed
@@ -171,8 +171,8 @@ def predict(test_img):
 print("Predicting images...")
 
 # load test images
-test_img1 = cv2.imread("data/test/test_hx5.jpg")
-test_img2 = cv2.imread("data/test/test_hx.png")
+test_img1 = cv.imread("data/test/test_hx5.jpg")
+test_img2 = cv.imread("data/test/test_hx.png")
 
 # perform a prediction
 predicted_img1 = predict(test_img1)
@@ -180,8 +180,8 @@ predicted_img2 = predict(test_img2)
 print("Prediction complete")
 
 # display both images
-cv2.imshow(subjects[1], predicted_img1)
-cv2.imshow(subjects[2], predicted_img2)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv.imshow(subjects[1], predicted_img1)
+cv.imshow(subjects[2], predicted_img2)
+cv.waitKey(0)
+cv.destroyAllWindows()
 
