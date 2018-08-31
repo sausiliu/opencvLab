@@ -10,6 +10,7 @@
 
 
 ## 博客
+* https://www.pyimagesearch.com/2018/07/23/simple-object-tracking-with-opencv/
 
 
 ## 项目
