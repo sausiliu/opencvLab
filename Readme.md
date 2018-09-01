@@ -1,7 +1,8 @@
 # OpenCV学习记录
 
 # 说明
-本仓库主要是积累自己学习OpenCV的过程，积累常用的demo
+  本仓库主要是为因为想通过OpenCV和TensorFlow来实现魔方的还原。对TensorFlow的具体使用目前还不太清楚，需要继续了解。<br>
+在实践过程中，发现对OpenCV的了解不太深，借此机会希望能将学习的过程记录下来。也算是小白入门OpenCV的历程记录吧。
 
 # 目的
 * 结合实际小项目来学习Computer Visiono
@@ -19,7 +20,7 @@
 
 # 环境
 * pycharm
-* 需要安装的包如下
+* 项目需要安装的包如下
 ```
-pip install: numpy matplotlib opencv-python opencv-contrib-python
+numpy matplotlib opencv-python opencv-contrib-python
 ```
