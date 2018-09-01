@@ -34,7 +34,7 @@ cv.namedWindow("Edge", cv.WINDOW_NORMAL)
 cv.imshow("Edge", image)
 
 img = img_orig
-img2, contours, hierarchy = cv.findContours(image, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
+img2, contours, hierarchy = cv.findContours(image, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
 cv.drawContours(img, contours, -1, (0, 0, 255), 3)
 cv.namedWindow("Contours", cv.WINDOW_NORMAL)
