@@ -73,9 +73,19 @@ DP是Douglas-Peucker道格拉斯-普克算法
 
 findContour用来寻找图像中的轮廓信息。
 
+* Example
+```
+img2, contours, hierarchy = cv.findContours(image, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+```
+
 
 #### drawContours
-
+* Example
+```
+cv.drawContours(img, contours, -1, (0, 0, 255), 3)
+cv.namedWindow("Contours", cv.WINDOW_NORMAL)
+cv.imshow("Contours", img)
+```
 
 * Example
 
