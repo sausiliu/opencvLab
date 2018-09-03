@@ -3,6 +3,7 @@
 
 import cv2 as cv
 import math
+import copy
 #import numpy as np
 
 img_path = './data/images/demo1.png'
@@ -33,7 +34,7 @@ cv.namedWindow("Edge", cv.WINDOW_NORMAL)
 
 cv.imshow("Edge", image)
 
-img = img_orig
+img = copy.copy(img_orig)
 img2, contours, hierarchy = cv.findContours(image, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
 cv.drawContours(img, contours, -1, (0, 0, 255), 3)
@@ -43,19 +44,26 @@ cv.imshow("Contours", img)
 print("Contours length:")
 print(len(contours))
 
+img = copy.copy(img_orig)
+
+print(len(contours))
+
 for cnt in contours:
     x, y, w, h = cv.boundingRect(cnt)
     if w < 20 or h < 20:
         continue
     # print("x:{0}, y:{1} , w:{2}, h: {3}".format(x, y, w, h))
-    #cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    # cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    # epsilon = 0.11 * cv.arcLength(cnt, True)
+    # print(epsilon)
     approx = cv.approxPolyDP(cnt, 100, True)
-    #cv.polylines(img, [approx], True, (0, 0, 255), 2)
+    # cv.polylines(img, [approx], True, (0, 0, 255), 2)
     # if approx.size == 4 \
     #         and math.fabs(cv.contourArea(cnt)) > 5 \
     #         and cv.isContourConvex(cnt):
     print(approx.size)
-    if approx.size == 4:
+    if approx.size == 4 \
+            and math.fabs(cv.contourArea(cnt)) > 5:
         cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
 cv.namedWindow("Output", cv.WINDOW_NORMAL)
