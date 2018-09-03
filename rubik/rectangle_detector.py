@@ -5,8 +5,8 @@ import cv2 as cv
 import math
 #import numpy as np
 
-#img_path = './data/images/demo1.png'
-img_path = './data/images/demo4.png'
+img_path = './data/images/demo1.png'
+#img_path = './data/images/demo4.png'
 
 
 img_orig = cv.imread(img_path)
@@ -45,21 +45,21 @@ print(len(contours))
 
 for cnt in contours:
     x, y, w, h = cv.boundingRect(cnt)
-    #if w < 60 or h < 60:
-    #    continue
+    if w < 20 or h < 20:
+        continue
     # print("x:{0}, y:{1} , w:{2}, h: {3}".format(x, y, w, h))
     #cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-    approx = cv.approxPolyDP(cnt, 50, True)
-    cv.polylines(img, [approx], True, (0, 0, 255), 2)
+    approx = cv.approxPolyDP(cnt, 100, True)
+    #cv.polylines(img, [approx], True, (0, 0, 255), 2)
     # if approx.size == 4 \
     #         and math.fabs(cv.contourArea(cnt)) > 5 \
     #         and cv.isContourConvex(cnt):
     print(approx.size)
-    #if approx.size == 4:
-    #    cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    if approx.size == 4:
+        cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-# cv.namedWindow("Output", cv.WINDOW_NORMAL)
-# cv.imshow("Output", img)
+cv.namedWindow("Output", cv.WINDOW_NORMAL)
+cv.imshow("Output", img)
 
 cv.waitKey()
 cv.destroyAllWindows()
