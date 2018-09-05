@@ -7,6 +7,16 @@
 #### cvtColor
 获取二值图
 
+#### arcLength
+```
+接口解释：
+获取轮廓的长度
+
+参数1：轮廓图像
+参数2：bool closed轮廓是否是封闭的
+```
+
+
 
 #### GaussianBlur
 

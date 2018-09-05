@@ -6,7 +6,8 @@ import math
 import copy
 #import numpy as np
 
-img_path = './data/images/demo1.png'
+#img_path = './data/images/demo1.png'
+img_path = './data/images/demo2.jpg'
 #img_path = './data/images/demo4.png'
 
 
@@ -48,6 +49,8 @@ i = 0
 for cnt in contours:
     x, y, w, h = cv.boundingRect(cnt)
     if w < 20 or h < 20:
+        continue
+    if w > 2*h or h > 2*w:
         continue
     # print("x:{0}, y:{1} , w:{2}, h: {3}".format(x, y, w, h))
     # cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
