@@ -41,13 +41,10 @@ cv.drawContours(img, contours, -1, (0, 0, 255), 3)
 cv.namedWindow("Contours", cv.WINDOW_NORMAL)
 cv.imshow("Contours", img)
 
-print("Contours length:")
-print(len(contours))
+print("Found contours: {0}".format(len(contours)))
 
 img = copy.copy(img_orig)
-
-print(len(contours))
-
+i = 0
 for cnt in contours:
     x, y, w, h = cv.boundingRect(cnt)
     if w < 20 or h < 20:
@@ -61,14 +58,16 @@ for cnt in contours:
     # if approx.size == 4 \
     #         and math.fabs(cv.contourArea(cnt)) > 5 \
     #         and cv.isContourConvex(cnt):
-    print(approx.size)
+    # print(approx.size)
     if approx.size == 4 \
             and math.fabs(cv.contourArea(cnt)) > 5:
         cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        i += 1
 
 cv.namedWindow("Output", cv.WINDOW_NORMAL)
 cv.imshow("Output", img)
 
+print('Found {0} rectangle'.format(i))
 cv.waitKey()
 cv.destroyAllWindows()
 
