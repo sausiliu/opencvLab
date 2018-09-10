@@ -8,7 +8,7 @@
 ## 网址
 ```
 http://answers.opencv.org/question/70958/recognise-colours-in-3x3-grid/
-
+https://www.speedsolving.com/forum/threads/3x3x3-solver-in-python.64887/
 ```
 
 ## 博客
@@ -22,6 +22,7 @@ https://www.pyimagesearch.com/2018/07/23/simple-object-tracking-with-opencv/
 ```
 https://github.com/dwalton76
 https://github.com/Hironsan/BossSensor
+https://github.com/hkociemba/RubiksCube-TwophaseSolver
 
 ```
 
