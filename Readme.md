@@ -1,6 +1,6 @@
 # OpenCV学习记录
 
-* status： opencv识别到的方块和颜色对应？
+* status： 先使用现成的模块来解决魔方的还原算法，掌握算法的使用。
 
 # 说明
   本仓库主要是为因为想通过OpenCV和TensorFlow来实现魔方的还原。对TensorFlow的具体使用目前还不太清楚，需要继续了解。<br>
@@ -19,6 +19,7 @@
 | opencv入门 - 识别人脸| ✅ |
 | opencv入门 - 识别颜色 | ✅ |
 | opencv入门 - 识别方块| ✅ |
+| rubik's cube - 算法模块使用 |... |
 | rubik's cube - opencv方块+ cube 状态 |... |
 | rubik's cube | ... |
 | rubik's cube | ... |
