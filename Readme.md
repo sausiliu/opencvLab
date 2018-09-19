@@ -13,15 +13,15 @@
 
 # 进度
 
-| 目标| 时间 | 状态 |
-| :------: | :------: | :------: |
-| opencv入门 | 8.20| ✅ |
-| opencv入门 - 识别人脸| 8.20| ✅ |
-| opencv入门 - 识别颜色 | 8.20| ✅ |
-| opencv入门 - 识别方块| 8.30| ✅ |
-| rubik's cube - opencv方块+ cube 状态 | 9.15|... |
-| rubik's cube | 9.15| ... |
-| rubik's cube | 9.15| ... |
+| 目标| 状态 |
+| :------ | :------: |
+| opencv入门 | ✅ |
+| opencv入门 - 识别人脸| ✅ |
+| opencv入门 - 识别颜色 | ✅ |
+| opencv入门 - 识别方块| ✅ |
+| rubik's cube - opencv方块+ cube 状态 |... |
+| rubik's cube | ... |
+| rubik's cube | ... |
 
 
 
