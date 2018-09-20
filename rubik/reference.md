@@ -9,6 +9,7 @@
 ```
 http://answers.opencv.org/question/70958/recognise-colours-in-3x3-grid/
 https://www.speedsolving.com/forum/threads/3x3x3-solver-in-python.64887/
+https://fulmicoton.com/posts/rubix/
 ```
 
 ## 博客
