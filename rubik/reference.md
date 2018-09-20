@@ -24,6 +24,7 @@ https://www.pyimagesearch.com/2018/07/23/simple-object-tracking-with-opencv/
 https://github.com/dwalton76
 https://github.com/Hironsan/BossSensor
 https://github.com/hkociemba/RubiksCube-TwophaseSolver
-
+https://github.com/Wiston999/python-rubik
+https://github.com/adrianliaw/PyCuber
 ```
 
