@@ -30,5 +30,5 @@
 * pycharm
 * 项目需要安装的包如下
 ```
-numpy matplotlib opencv-python opencv-contrib-python
+numpy matplotlib opencv-python opencv-contrib-python pycuber
 ```
