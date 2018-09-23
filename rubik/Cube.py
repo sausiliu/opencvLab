@@ -13,17 +13,6 @@ class BlockColors:
     BLOCK = ' '*2
     SPACE = ' '*2
 
-'''
-bc = BlockColors()
-print(bc.BLUE, end=bc.BLOCK)
-print(bc.END, end=bc.SPACE)
-print(bc.RED, end=bc.BLOCK)
-print(bc.END, end=bc.SPACE)
-print(bc.RED, end=bc.BLOCK)
-print(bc.END)
-print(bc.RED, end=' ')
-print(bc.RED, end=' ')
-'''
 
 class Printer(object):
     def __init__(self, cube, isColour=True):
@@ -137,9 +126,13 @@ class Cube(object):
         self.faces['B'].set_colours('y' * square_size)
         self.faces['D'].set_colours('o' * square_size)
 
+    def set_cube(self, colours):
+        i = 0
+        for face in ['U', 'L', 'F', 'R', 'B', 'D']:
+            self.faces[face].set_colours(colours[i:(i+9)])
+            i += 9
 cube = Cube(3)
+cube.set_cube('wowgybwyogygybyoggrowbrgywrborwggybrbwororbwborgowryby')
 printCube = Printer(cube)
-
 printCube.print_cube()
 
-#print(cube.faces['U'].get_colour(0, 0))

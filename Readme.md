@@ -13,6 +13,11 @@
 
 # 进度
 
+- 能在终端打印出cube 的展开图
+
+![avatar](rubik/data/images/print_cube.png)
+
+
 | 目标| 状态 |
 | :------ | :------: |
 | opencv入门 | ✅ |
