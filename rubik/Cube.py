@@ -1,24 +1,26 @@
+from __future__ import print_function
+
 class BlockColors:
     BLUE = '\033[44m'
-    GREEN = '\033[102m'
+    GREEN = '\033[42m'
     YELLOW = '\033[103m'
-    RED = '\033[101m'
-    WHITE = '\033[107m'
-    ORANGE = '\033[48;5;214m'
-    ENDC = '\033[0m'
+    RED = '\033[41m'
+    WHITE = '\033[47m'
+    ORANGE = '\033[105m'
+    END = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     BLOCK = ' '*2
-    SPACE = '|'
+    SPACE = ' '*2
 
 '''
 bc = BlockColors()
 print(bc.BLUE, end=bc.BLOCK)
-print(bc.ENDC, end=bc.SPACE)
+print(bc.END, end=bc.SPACE)
 print(bc.RED, end=bc.BLOCK)
-print(bc.ENDC, end=bc.SPACE)
+print(bc.END, end=bc.SPACE)
 print(bc.RED, end=bc.BLOCK)
-print(bc.ENDC)
+print(bc.END)
 print(bc.RED, end=' ')
 print(bc.RED, end=' ')
 '''
@@ -30,19 +32,36 @@ class Printer(object):
         self.bc = BlockColors()
         self.size = cube.size
 
-    def print_up(self):
+    def print_up_down(self, face):
+        space_len = self.cube.size * 2
         for row in range(self.size):
-            print(self.bc.BLOCK * self.cube.size, end='') #
+            print(self.bc.SPACE * space_len, end='')
             for column in range(self.size):
                 if (column % 2) != 0:
                     print('|', end='')
-                    self.print_colour(self.cube.faces['U'].get_colour(row, column))
+                    self.print_colour(self.cube.faces[face].get_colour(row, column))
                     print('|', end='')
                 else:
-                    self.print_colour(self.cube.faces['U'].get_colour(row, column))
+                    self.print_colour(self.cube.faces[face].get_colour(row, column))
             print()
             if row != self.size - 1:
-                print('       -   -   -')
+                print(self.bc.SPACE * space_len + '---|---|---')
+
+    def print_LFRB(self):
+        for row in range(self.size):
+            for face in ['L', 'F', 'R', 'B']:
+                for column in range(self.size):
+                    if (column % 2) != 0:
+                        print('|', end='')
+                        self.print_colour(self.cube.faces[face].get_colour(row, column))
+                        print('|', end='')
+                    else:
+                        self.print_colour(self.cube.faces[face].get_colour(row, column))
+                if face != 'B':
+                    print('|', end='')
+            print()
+            if row != self.size - 1:
+                print('---|---|---|---|---|---|---|---|---|---|---|---')
 
     def print_colour(self, colour):
         if self.isColour:
@@ -59,9 +78,17 @@ class Printer(object):
             elif colour == 'o':
                 print(self.bc.ORANGE, end=self.bc.BLOCK)
 
-            print('', self.bc.ENDC, end='')
+            print('', self.bc.END, end='')
         else:
             print()
+    def print_cube(self):
+        self.print_up_down('U')
+        print('            ---|---|---')
+        self.print_LFRB()
+        print('            ---|---|---')
+        self.print_up_down('D')
+
+        print()
 
 class Face(object):
     COLOURS = ['r', 'g', 'b', 'w', 'y', 'o']
@@ -113,6 +140,6 @@ class Cube(object):
 cube = Cube(3)
 printCube = Printer(cube)
 
-printCube.print_up()
+printCube.print_cube()
 
 #print(cube.faces['U'].get_colour(0, 0))
