@@ -1,6 +1,6 @@
 # OpenCV学习记录
 
-* status： 先使用现成的模块来解决魔方的还原算法，掌握算法的使用。
+* status： 可以在终端显示出魔方的展开状态。需要使用现成的模块来解决魔方的还原算法，掌握算法的使用。
 
 # 说明
   本仓库主要是为因为想通过OpenCV和TensorFlow来实现魔方的还原。对TensorFlow的具体使用目前还不太清楚，需要继续了解。<br>
@@ -13,7 +13,7 @@
 
 # 进度
 
-- 能在终端打印出cube 的展开图
+- 能在终端打印出cube 的展开图,
 
 ![avatar](rubik/data/images/print_cube.png)
 
