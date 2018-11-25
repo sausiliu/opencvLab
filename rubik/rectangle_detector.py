@@ -20,6 +20,10 @@ image = cv.cvtColor(image_bilateral, cv.COLOR_BGR2GRAY)
 cv.namedWindow("gray image", cv.WINDOW_NORMAL)
 cv.imshow("gray image", image)
 
+def isOverlap():
+    # detech
+    return True
+
 # Gaussian Filter
 # image = cv.GaussianBlur(image, (5, 5), 80)
 # cv.namedWindow("Gaussian Blurred", cv.WINDOW_NORMAL)
@@ -48,8 +52,8 @@ img = copy.copy(img_orig)
 i = 0
 for cnt in contours:
     x, y, w, h = cv.boundingRect(cnt)
-    if w < 20 or h < 20:
-        continue
+    #if w < 20 or h < 20:
+    #    continue
     if w > 2*h or h > 2*w:
         continue
     # print("x:{0}, y:{1} , w:{2}, h: {3}".format(x, y, w, h))
@@ -65,6 +69,7 @@ for cnt in contours:
     if approx.size == 4 \
             and math.fabs(cv.contourArea(cnt)) > 5:
         cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        print("x:{0} y:{1} w:{2} h:{3}".format(x, y, w, h))
         i += 1
 
 cv.namedWindow("Output", cv.WINDOW_NORMAL)
